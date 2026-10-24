@@ -1,0 +1,23 @@
+{
+  "name": "triforvit-ui",
+  "version": "2.0.0",
+  "description": "ForgeSight (TriForVit) — Robust Patch-Based Hierarchical Image Forgery Detection & Classification Web Application",
+  "homepage": "https://github.com/NEHANGRM/TriForVit-UI",
+  "author": "Team 39 (Final Year Project - IAPR)",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx serve . -p 8080",
+    "dev": "npx serve . -p 8080",
+    "serve": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "image-forgery-detection",
+    "vision-transformer",
+    "ftt-v2",
+    "deepfake-detection",
+    "cyber-forensics",
+    "copy-move",
+    "splicing",
+    "inpainting"
+  ]
+}

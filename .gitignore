@@ -1,0 +1,14 @@
+# OS / System Files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Node / Python
+node_modules/
+__pycache__/
+*.pyc
+.env
