@@ -687,7 +687,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sideHeatImg) sideHeatImg.src = overlaySrc;
 
     // Single views
-    if (singleHeatImg) singleHeatImg.src = heatSrc;
+    if (singleHeatImg) singleHeatImg.src = overlaySrc;
     if (singleBboxImg) singleBboxImg.src = bboxSrc;
 
     // Multi-stream images
@@ -695,7 +695,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (streamFftImg) streamFftImg.src = data.visualizations.fft_stream || '';
     if (streamNoiseImg) streamNoiseImg.src = data.visualizations.noise_stream || '';
 
-    // Reset slider to 50%
+    // Reset view mode to split and slider to 50%
+    setViewMode('split');
     setSliderPosition(50);
   }
 
@@ -706,6 +707,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const clamped = Math.max(0, Math.min(100, percentage));
     if (splitTopLayer) splitTopLayer.style.width = `${clamped}%`;
     if (sliderHandleLine) sliderHandleLine.style.left = `${clamped}%`;
+    if (splitBottomImg && splitSliderBox) {
+      splitBottomImg.style.width = `${splitSliderBox.offsetWidth}px`;
+    }
   }
 
   function handleSliderMove(e) {
@@ -744,31 +748,81 @@ document.addEventListener('DOMContentLoaded', () => {
     isDraggingSlider = false;
   });
 
+  window.addEventListener('resize', () => {
+    if (splitSliderBox && splitBottomImg) {
+      splitBottomImg.style.width = `${splitSliderBox.offsetWidth}px`;
+    }
+  });
+
   // --------------------------------------------------------------------------
   // View Mode Switcher
   // --------------------------------------------------------------------------
-  modeButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      modeButtons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const mode = btn.dataset.mode;
-      if (splitSliderBox) splitSliderBox.style.display = 'none';
-      if (sideBySideGrid) sideBySideGrid.classList.remove('active');
-      if (singleHeatmapBox) singleHeatmapBox.classList.remove('active');
-      if (singleBboxBox) singleBboxBox.classList.remove('active');
-      if (opacityControlWrapper) opacityControlWrapper.style.display = 'none';
-
-      if (mode === 'split') {
-        if (splitSliderBox) splitSliderBox.style.display = 'block';
-        if (opacityControlWrapper) opacityControlWrapper.style.display = 'flex';
-      } else if (mode === 'side') {
-        if (sideBySideGrid) sideBySideGrid.classList.add('active');
-      } else if (mode === 'heatmap' || mode === 'overlay') {
-        if (singleHeatmapBox) singleHeatmapBox.classList.add('active');
-      } else if (mode === 'bbox') {
-        if (singleBboxBox) singleBboxBox.classList.add('active');
+  function setViewMode(mode) {
+    modeButtons.forEach((b) => {
+      if (b.dataset.mode === mode) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
       }
+    });
+
+    const splitBox = document.getElementById('split-wrapper');
+    const sideBox = document.getElementById('side-wrapper');
+    const overlayBox = document.getElementById('overlay-wrapper');
+    const bboxBox = document.getElementById('bbox-wrapper');
+    const opacityWrap = document.getElementById('opacity-control');
+
+    if (splitBox) {
+      splitBox.style.display = 'none';
+      splitBox.classList.remove('active');
+    }
+    if (sideBox) {
+      sideBox.style.display = 'none';
+      sideBox.classList.remove('active');
+    }
+    if (overlayBox) {
+      overlayBox.style.display = 'none';
+      overlayBox.classList.remove('active');
+    }
+    if (bboxBox) {
+      bboxBox.style.display = 'none';
+      bboxBox.classList.remove('active');
+    }
+    if (opacityWrap) {
+      opacityWrap.style.display = 'none';
+    }
+
+    if (mode === 'split') {
+      if (splitBox) {
+        splitBox.style.display = 'block';
+        splitBox.classList.add('active');
+      }
+      if (opacityWrap) opacityWrap.style.display = 'flex';
+      setSliderPosition(50);
+    } else if (mode === 'side') {
+      if (sideBox) {
+        sideBox.style.display = 'grid';
+        sideBox.classList.add('active');
+      }
+    } else if (mode === 'heatmap' || mode === 'overlay') {
+      if (overlayBox) {
+        overlayBox.style.display = 'block';
+        overlayBox.classList.add('active');
+      }
+      if (opacityWrap) opacityWrap.style.display = 'flex';
+    } else if (mode === 'bbox') {
+      if (bboxBox) {
+        bboxBox.style.display = 'block';
+        bboxBox.classList.add('active');
+      }
+    }
+  }
+
+  modeButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const mode = btn.dataset.mode;
+      setViewMode(mode);
     });
   });
 
@@ -779,6 +833,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (opacityVal) opacityVal.textContent = `${val}%`;
       if (splitBottomImg) {
         splitBottomImg.style.opacity = val / 100.0;
+      }
+      if (singleHeatImg) {
+        singleHeatImg.style.opacity = val / 100.0;
       }
     });
   }

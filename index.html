@@ -12,7 +12,7 @@
  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
  
  <!-- Cyber-Forensics Stylesheet with Cache Busting -->
- <link rel="stylesheet" href="css/style.css?v=2.3.0">
+ <link rel="stylesheet" href="css/style.css?v=2.3.1">
 
  <!-- Critical Layout CSS -->
  <style>
@@ -465,25 +465,29 @@
  <!-- Side by Side View -->
  <div class="side-view-wrapper" id="side-wrapper">
  <div class="side-box">
+ <div class="side-box-header">Input Query Image (512×512)</div>
  <img id="img-side-orig" src="" alt="Original">
- <span class="side-label">Input Query Image</span>
  </div>
  <div class="side-box">
+ <div class="side-box-header">Predicted Anomaly Mask</div>
  <img id="img-side-heat" src="" alt="Heatmap">
- <span class="side-label">Predicted Anomaly Mask</span>
  </div>
  </div>
 
  <!-- Single Overlay View -->
  <div class="single-view-wrapper" id="overlay-wrapper">
+ <div class="single-view-card">
  <img id="img-single-overlay" src="" alt="Pure Overlay">
- <span class="side-label">Continuous Probability Heatmap</span>
+ <span class="view-caption-badge">Continuous Probability Heatmap Overlay</span>
+ </div>
  </div>
 
  <!-- Bounding Box View -->
  <div class="single-view-wrapper" id="bbox-wrapper">
+ <div class="single-view-card">
  <img id="img-bbox" src="" alt="Bounding Box Localization">
- <span class="side-label">Extracted Manipulation Boundary Box</span>
+ <span class="view-caption-badge">Extracted Manipulation Boundary Box</span>
+ </div>
  </div>
  </div>
 
@@ -1254,7 +1258,7 @@
  <div class="toast" id="toast">Diagnostic summary copied to clipboard!</div>
 
  <!-- Scripts with Cache Busting -->
- <script src="js/demo_data.js?v=2.3.0"></script>
- <script src="js/app.js?v=2.3.0"></script>
+ <script src="js/demo_data.js?v=2.3.1"></script>
+ <script src="js/app.js?v=2.3.1"></script>
 </body>
 </html>
