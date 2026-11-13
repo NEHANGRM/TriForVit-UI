@@ -11,8 +11,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Cyber-Forensics Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Cyber-Forensics Stylesheet with Cache Busting -->
+  <link rel="stylesheet" href="css/style.css?v=2.2.1">
+
+  <!-- Critical Layout CSS to prevent unstyled flash & cache mismatch -->
+  <style>
+    .view-panel { display: none; }
+    .view-panel.active { display: block; }
+    .main-nav-wrapper { display: flex; justify-content: center; margin-bottom: 2rem; }
+    .main-nav-tabs {
+      display: inline-flex;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 0.4rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      gap: 0.5rem;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+    }
+    .nav-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .nav-tab-btn:hover { color: #f8fafc; background: rgba(255, 255, 255, 0.04); }
+    .nav-tab-btn.active {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(99, 102, 241, 0.3));
+      color: #ffffff;
+      border: 1px solid rgba(6, 182, 212, 0.45);
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    }
+  </style>
 </head>
 <body>
 
@@ -1013,8 +1053,8 @@
     </div>
   </div>
 
-  <!-- Benchmark Precomputed Data & Frontend Application -->
-  <script src="js/demo_data.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Benchmark Precomputed Data & Frontend Application with Cache Busting -->
+  <script src="js/demo_data.js?v=2.2.1"></script>
+  <script src="js/app.js?v=2.2.1"></script>
 </body>
 </html>
