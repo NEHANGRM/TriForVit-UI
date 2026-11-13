@@ -1,12 +1,13 @@
-# ForgeSight (TriForVit-UI) 🔬
-### Robust Patch-Based Hierarchical Framework for Image Forgery Detection, Localization & Classification
+# A Robust Multi-Task Vision Transformer Framework for Image Forgery Localization, Detection, and Classification 🔬
+### 23CSE498 – Project Phase II (External Review) • Team Number: 39
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
 
-**ForgeSight (TriForVit)** is the state-of-the-art interactive cyber-forensic web application for the **FTT v2 (Forensic Transformer v2)** framework developed by **Team 39 (Final Year Project - IAPR)**.
+Interactive cyber-forensic web evaluation portal developed by **Team 39 (Amrita Vishwa Vidyapeetham)** for the research project:
+**A Robust Multi-Task Vision Transformer Framework for Image Forgery Localization, Detection, and Classification**.
 
-It pairs self-supervised Vision Transformer (DINOv3 / ViT + LoRA) representations with a specialized **Copy-Move Self-Correlation Branch** and a multi-scale convolutional mask decoder to achieve high-resolution, end-to-end image tampering detection, pixel localization, and multi-label forgery categorization.
+It pairs self-supervised Vision Transformer (DINOv3 ViT-S/14 + LoRA) representations with a specialized **Copy-Move Self-Correlation Branch** (48 px Chebyshev exclusion) and a multi-stage convolutional mask decoder to achieve high-resolution, end-to-end image tampering detection, pixel localization, and multi-label forgery categorization.
 
 ---
 

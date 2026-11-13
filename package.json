@@ -1,7 +1,7 @@
 {
   "name": "triforvit-ui",
   "version": "2.2.2",
-  "description": "ForgeSight (TriForVit) — Robust Patch-Based Hierarchical Image Forgery Detection & Classification Web Application",
+  "description": "A Robust Multi-Task Vision Transformer Framework for Image Forgery Localization, Detection, and Classification — Team 39",
   "homepage": "https://github.com/NEHANGRM/TriForVit-UI",
   "author": "Team 39 (Final Year Project - IAPR)",
   "license": "MIT",
