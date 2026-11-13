@@ -887,7 +887,8 @@ body::after {
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.view-mode-buttons {
+.view-mode-buttons,
+.view-toggles {
   display: flex;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -896,26 +897,32 @@ body::after {
   gap: 0.25rem;
 }
 
-.mode-btn {
+.mode-btn,
+.view-toggle-btn {
   background: transparent;
   border: none;
   color: var(--text-secondary);
-  font-size: 0.78rem;
+  font-family: inherit;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.45rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-fast);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  user-select: none;
 }
 
-.mode-btn:hover {
+.mode-btn:hover,
+.view-toggle-btn:hover {
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.mode-btn.active {
+.mode-btn.active,
+.view-toggle-btn.active {
   background: var(--cyan);
   color: #07090e;
   font-weight: 700;
@@ -1192,49 +1199,108 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.btn-secondary {
+.btn-action,
+.action-bar button {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  font-size: 0.85rem;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: inherit;
+  font-size: 0.88rem;
   font-weight: 600;
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-full);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  outline: none;
+  border: 1px solid transparent;
+  line-height: 1.25;
 }
 
-.btn-secondary:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-card);
+.btn-action svg,
+.action-bar button svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--cyan), var(--indigo));
-  border: none;
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 0.65rem 1.4rem;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  box-shadow: var(--shadow-glow);
-  transition: all var(--transition-fast);
-}
-
-.btn-primary:hover {
-  filter: brightness(1.1);
+.btn-action:hover svg,
+.action-bar button:hover svg {
   transform: translateY(-1px);
+}
+
+/* Primary: Modern Gradient with Cyan Glow */
+.btn-action.primary,
+.btn-primary {
+  background: linear-gradient(135deg, #06b6d4 0%, #4f46e5 100%);
+  color: #ffffff !important;
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-action.primary:hover,
+.btn-primary:hover {
+  background: linear-gradient(135deg, #22d3ee 0%, #6366f1 100%);
+  border-color: rgba(6, 182, 212, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+}
+
+.btn-action.primary:active,
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+}
+
+/* Secondary: Frosted Cyber Glass */
+.btn-action.secondary,
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.85);
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.btn-action.secondary:hover,
+.btn-secondary:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(6, 182, 212, 0.55);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 14px rgba(6, 182, 212, 0.25);
+}
+
+.btn-action.secondary:active,
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Ghost / Clear / Reset: Crimson Subtle Tint */
+.btn-action.ghost {
+  background: rgba(239, 68, 68, 0.08);
+  color: #fca5a5 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn-action.ghost:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.6);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
+}
+
+.btn-action.ghost:active {
+  transform: translateY(0);
 }
 
 /* Toast Notification */
