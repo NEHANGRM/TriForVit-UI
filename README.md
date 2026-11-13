@@ -12,6 +12,7 @@ It pairs self-supervised Vision Transformer (DINOv3 / ViT + LoRA) representation
 
 ## 🌟 Key Capabilities
 
+- **Dual-View Integrated Portal**: Seamlessly switch between the **Interactive Forensic Lab (Live Demo)** and the **Project Showcase & Documentation Portal** (Objectives, Problem Statement, Methodology, Team Details, Progress, Specs, Repos, Demonstration).
 - **Interactive Split Wipe Viewer**: Real-time sliding curtain wipe comparing the pristine original image with the pixel-level anomaly heatmap overlay.
 - **Multiple Visualization Modes**:
   - *Curtain Split*: Dual-layered draggable split line with real-time percentage tracking.
@@ -22,9 +23,9 @@ It pairs self-supervised Vision Transformer (DINOv3 / ViT + LoRA) representation
   - **Stage 1 (DetectionHead)**: Binary classification (Authentic vs. Tampered) with confidence score and decision margin telemetry.
   - **Stage 2 (TypeHead)**: Multi-label classification breakdown (*Copy-Move*, *Splicing*, *Inpainting*).
 - **Multi-Stream Forensic Telemetry**:
-  - *Spatial Patches*: Visual patch token representation.
-  - *2D FFT Frequency Magnitude*: Fourier spectrum highlighting spatial frequency inconsistencies.
-  - *SRM High-Pass Noise Residuals*: Steganographic residual sensor noise patterns revealing tampering boundaries.
+  - *Spatial Patches*: DINOv3 ViT-S/16 self-supervised patch tokens with LoRA.
+  - *2D FFT Frequency Magnitude*: 2D Fourier polar spectrum diagnosing compression artifacts.
+  - *Copy-Move Self-Correlation Map*: Chebyshev distance-masked ( > 1$) mutual affinity matrix isolating cloned regions.
 - **Diagnostic Export**:
   - One-click diagnostic executive summary copy to clipboard.
   - Forensic JSON telemetry export.

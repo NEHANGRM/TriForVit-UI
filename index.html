@@ -56,11 +56,46 @@
       </div>
     </header>
 
+    <!-- View Switcher Navigation Tabs -->
+    <div class="main-nav-wrapper">
+      <nav class="main-nav-tabs" aria-label="Main Navigation">
+        <button type="button" class="nav-tab-btn active" id="tab-lab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 2v7.31"></path><path d="M14 9.3V1.99"></path><path d="M8.5 2h7"></path>
+            <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><path d="M5.52 16h12.96"></path>
+          </svg>
+          Interactive Forensic Lab (Live Demo)
+        </button>
+        <button type="button" class="nav-tab-btn" id="tab-docs">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <line x1="12" y1="6" x2="16" y2="6"></line>
+            <line x1="12" y1="10" x2="16" y2="10"></line>
+          </svg>
+          Project Showcase & Architecture Portal
+          <span class="tab-badge">Team 39</span>
+        </button>
+      </nav>
+    </div>
+
+
+    <div id="view-lab" class="view-panel active">
+
     <!-- Hero Intro -->
     <section class="hero-banner" id="hero-banner">
       <span class="hero-eyebrow">Robust Patch-Based Hierarchical Forensic Framework</span>
       <h2>End-to-End Forgery Detection, Pixel Localization & Classification</h2>
       <p>Powered by the <strong>FTT v2 Architecture</strong>: Combines self-supervised Vision Transformer representations with a specialized <strong>Self-Correlation Copy-Move Branch</strong> and a high-resolution convolutional mask decoder for 512×512 pixel-level forgery localization.</p>
+      <div style="margin-top: 1.25rem; display: flex; justify-content: center; gap: 0.85rem;">
+        <button type="button" class="btn-secondary" id="btn-goto-docs" style="background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.4); color: #a5f3fc; font-weight: 600;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Explore Project Flow & Architecture Portal ➜
+        </button>
+      </div>
     </section>
 
     <!-- Benchmark Samples Strip -->
@@ -373,54 +408,59 @@
         </div>
       </section>
 
-      <!-- Three-Stream / Multi-Modal Decomposition Explorer -->
+      <!-- FTT v2 Feature Decomposition & Forensic Attribution -->
       <section class="card streams-card" id="card-streams">
         <div class="card-header">
           <div class="card-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-              <line x1="4" y1="22" x2="4" y2="15"></line>
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
-            Multi-Modal Forensic Decomposition (FTT v2)
+            FTT v2 Forensic Representation & Attribution Maps
           </div>
-          <span class="card-badge">Forensic Triplet</span>
+          <span class="card-badge">FTT v2 Multi-Task Telemetry</span>
+        </div>
+
+        <div style="margin-bottom: 1.25rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; background: rgba(6,182,212,0.06); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(6,182,212,0.2);">
+          <strong style="color: var(--cyan);">Architecture Notice:</strong> FTT v2 does not use brittle ad-hoc three-stream preprocessing. Instead, it extracts deep spatial-semantic patch tokens via <strong>DINOv3 ViT-S/16 + LoRA</strong>, routes intermediate Layer 4 activations through an explicit <strong>Self-Correlation Copy-Move Branch</strong>, and performs multi-spectral 2D FFT diagnostics for frequency boundary verification.
         </div>
 
         <div class="streams-grid">
-          <!-- Stream 1: Spatial -->
+          <!-- Feature Map 1: DINOv3 ViT Spatial -->
           <div class="stream-item">
             <div class="stream-header">
               <div class="stream-indicator spatial"></div>
-              <h4>Stream 1: Spatial Representation</h4>
+              <h4>Feature 1: DINOv3 ViT Spatial Patches</h4>
             </div>
             <div class="stream-img-box">
               <img id="stream-spatial-img" src="" alt="Spatial Stream">
             </div>
-            <p class="stream-desc">DINOv3 / ViT patch embeddings capturing semantic structure, lighting incoherence, and high-level contextual boundaries.</p>
+            <p class="stream-desc">Self-supervised foundation vision transformer representations tokenized into 16×16 spatial patches with trainable LoRA adapter layers.</p>
           </div>
 
-          <!-- Stream 2: Frequency FFT -->
+          <!-- Feature Map 2: 2D FFT Frequency -->
           <div class="stream-item">
             <div class="stream-header">
               <div class="stream-indicator fft"></div>
-              <h4>Stream 2: 2D FFT Frequency</h4>
+              <h4>Feature 2: 2D FFT Frequency Spectrum</h4>
             </div>
             <div class="stream-img-box">
               <img id="stream-fft-img" src="" alt="FFT Frequency Spectrum">
             </div>
-            <p class="stream-desc">Log-magnitude Fourier spectrum revealing periodic compression grid anomalies, double JPEG quantization, and high-frequency resample traces.</p>
+            <p class="stream-desc">Log-magnitude 2D Fourier polar spectrum diagnosing spatial-frequency discontinuities, JPEG recompression grids, and resampling artifacts.</p>
           </div>
 
-          <!-- Stream 3: Copy-Move Correlation Map -->
+          <!-- Feature Map 3: Copy-Move Correlation Map -->
           <div class="stream-item">
             <div class="stream-header">
               <div class="stream-indicator noise"></div>
-              <h4>Stream 3: Self-Correlation Map</h4>
+              <h4>Feature 3: Copy-Move Self-Correlation</h4>
             </div>
             <div class="stream-img-box">
               <img id="stream-noise-img" src="" alt="Self-Correlation Map">
             </div>
-            <p class="stream-desc">Chebyshev distance-masked mutual match affinity matrix from the Copy-Move Correlation Branch, isolating cloned patch pairs.</p>
+            <p class="stream-desc">Chebyshev distance-masked (Chebyshev distance d > 1) mutual-match patch affinity matrix from Layer 4, isolating cloned and duplicate image regions.</p>
           </div>
         </div>
       </section>
@@ -455,6 +495,484 @@
       </footer>
 
     </main>
+    </div><!-- end #view-lab -->
+
+
+    <!-- ====================================================================
+         VIEW 2: PROJECT SHOWCASE & DOCUMENTATION PORTAL (TEAM 39)
+         ==================================================================== -->
+    <div id="view-docs" class="view-panel">
+      <div class="docs-container">
+
+        <!-- Docs Hero -->
+        <header class="docs-hero">
+          <span class="hero-eyebrow" style="margin-bottom: 0.85rem;">23CSE399 Final Year Research Project • Type 1: IAPR Track</span>
+          <h1>A Robust Patch-Based Hierarchical Framework<br>for Image Forgery Detection, Localization & Classification</h1>
+          <p>An end-to-end multi-task vision transformer architecture featuring <strong>DINOv3 ViT-S/16 + LoRA</strong>, an explicit <strong>Self-Correlation Copy-Move Branch</strong>, and a multi-scale convolutional mask decoder for 512×512 pixel-level forensic verification.</p>
+          
+          <div class="docs-meta-bar">
+            <div class="docs-meta-pill">
+              <span>Institution:</span> <strong>Amrita Vishwa Vidyapeetham</strong>
+            </div>
+            <div class="docs-meta-pill">
+              <span>Department:</span> <strong>Dept. of CSE, School of Computing</strong>
+            </div>
+            <div class="docs-meta-pill">
+              <span>Team:</span> <strong>Team 39</strong>
+            </div>
+            <div class="docs-meta-pill">
+              <span>Project Guide:</span> <strong>Ms. Sruthi CJ</strong>
+            </div>
+            <div class="docs-meta-pill">
+              <span>Git Branch:</span> <strong><code>dkb/arch-fix</code></strong>
+            </div>
+          </div>
+        </header>
+
+        <!-- Sticky Sub-Navigation Bar -->
+        <nav class="docs-subnav" aria-label="Documentation Sections">
+          <a href="#doc-objectives" class="docs-subnav-link active">🎯 Objectives</a>
+          <a href="#doc-problem" class="docs-subnav-link">⚠️ Problem Statement</a>
+          <a href="#doc-methodology" class="docs-subnav-link">🧬 Methodology & Flow</a>
+          <a href="#doc-team" class="docs-subnav-link">👥 Team Details</a>
+          <a href="#doc-progress" class="docs-subnav-link">📈 Progress & Ablations</a>
+          <a href="#doc-specs" class="docs-subnav-link">📚 Technical Specs</a>
+          <a href="#doc-repos" class="docs-subnav-link">💻 GitHub Repositories</a>
+          <a href="#doc-demo" class="docs-subnav-link">🎬 Demonstration Walkthrough</a>
+        </nav>
+
+        <!-- Section 1: Project Objectives -->
+        <section class="doc-section" id="doc-objectives">
+          <div class="doc-section-header">
+            <h2>1. Project Objectives</h2>
+            <span class="doc-section-badge">Academic Mandate</span>
+          </div>
+
+          <div class="obj-grid">
+            <div class="obj-card">
+              <div class="obj-icon cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3>Hierarchical Multi-Task Inference</h3>
+              <p>Jointly resolve binary image-level authenticity (<code>det_logit</code>), high-resolution 512×512 pixel segmentation localization (<code>mask_logits</code>), and multi-label manipulation classification (<code>type_logits</code>: Copy-Move, Splicing, Inpainting) in a single unified forward pass.</p>
+            </div>
+
+            <div class="obj-card">
+              <div class="obj-icon indigo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3>Explicit Copy-Move Self-Correlation</h3>
+              <p>Address foundation model blind spots by introducing an explicit Layer 4 self-correlation branch with <strong>Chebyshev distance masking</strong> (suppressing diagonal $\|p_i - p_j\|_\infty \le 1$ artifacts) and mutual match normalization to catch cloned textures.</p>
+            </div>
+
+            <div class="obj-card">
+              <div class="obj-icon amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Boundary-Sharpened Edge Supervision</h3>
+              <p>Formulate a hybrid loss function combining morphological edge band supervision ($	ext{dilated} - 	ext{eroded}$ ground-truth contours) to sharply penalize fuzzy or bled tampering boundaries along manipulated regions.</p>
+            </div>
+
+            <div class="obj-card">
+              <div class="obj-icon emerald">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <h3>Generalization & Zero-Leakage Integrity</h3>
+              <p>Enforce strict source-disjoint train/val splitting via <strong>perceptual hashing (pHash)</strong> to eliminate near-duplicate contamination, combined with post-processing augmentations (JPEG QF 50-95, Gaussian blur, noise) for robust cross-dataset resilience.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Problem Statement -->
+        <section class="doc-section" id="doc-problem">
+          <div class="doc-section-header">
+            <h2>2. Problem Statement & Literature Gap</h2>
+            <span class="doc-section-badge">Research Motivation</span>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: #f43f5e;">⚠️</span> The Threat: Seamless Multi-Domain Digital Forgery
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;">
+              With the rapid proliferation of modern digital image manipulation software and deep generative inpainting engines, visual tampering has become imperceptible to the human eye. Digital image manipulations primarily fall into three distinct mechanisms:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-sm);">
+                <strong style="color: #f59e0b; display: block; margin-bottom: 0.35rem;">1. Copy-Move (Cloning)</strong>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Duplicating patches from the same image. Because both patches share the same camera sensor noise and illumination, standard classifiers completely overlook them.</span>
+              </div>
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-sm);">
+                <strong style="color: #f43f5e; display: block; margin-bottom: 0.35rem;">2. Splicing (Object Ingestion)</strong>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Compositing objects from distinct foreign images, introducing boundary frequency discontinuities and sensor PRNU mismatch.</span>
+              </div>
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-sm);">
+                <strong style="color: #a78bfa; display: block; margin-bottom: 0.35rem;">3. Inpainting (Synthesis / Removal)</strong>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Synthesizing or erasing regions using patch-match or deep diffusion, leaving blurred high-frequency noise residuals.</span>
+              </div>
+            </div>
+
+            <h4 style="font-size: 1rem; color: #ffffff; margin-bottom: 0.6rem;">Limitations of Existing Approaches:</h4>
+            <ul style="list-style: none; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li style="padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: #f87171;">✕</span> <strong>Block/Keypoint Methods (Fridrich et al.):</strong> Heavily brittle under post-processing (JPEG compression, blur, rotation) and completely fail in smooth textureless zones.</li>
+              <li style="padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: #f87171;">✕</span> <strong>Global CNN Classifiers:</strong> Overfit to dataset-specific camera sensors and compression artifacts; cannot output pixel-level spatial masks.</li>
+              <li style="padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: #f87171;">✕</span> <strong>Standard Vision Transformers (ViTs):</strong> Process patches purely semantically, lacking inductive bias for forensic noise discontinuities and duplicate patch correlation.</li>
+              <li style="padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: #f87171;">✕</span> <strong>Prior Hand-Crafted Multi-Streams:</strong> Attempting to run 3 raw parallel streams (spatial, FFT, noise) creates severe gradient divergence, massive memory bloat, and lacks high-resolution convolutional mask decoding.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 3: Methodology & Architecture Flow -->
+        <section class="doc-section" id="doc-methodology">
+          <div class="doc-section-header">
+            <h2>3. Methodology & Updated Architecture Flow (FTT v2)</h2>
+            <span class="doc-section-badge">Core Technical Contribution</span>
+          </div>
+
+          <!-- Highlighted Evolution Callout -->
+          <div class="arch-evolution-box">
+            <div class="arch-evolution-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Architectural Evolution: Why FTT v2 is NOT a Three-Stream ViT
+            </div>
+            <h3>From Conceptual Three-Stream to Production FTT v2 Architecture</h3>
+            <p>
+              In initial project reviews, our team proposed an ad-hoc <strong>Three-Stream Tokenization ViT</strong> (parallel spatial, FFT magnitude, and SRM noise streams). However, empirical validation and recent advances in forensic literature (e.g. <em>DINOv3-IML, arXiv 2604.16083</em>) revealed that ad-hoc parallel streams suffer from <strong>high training instability, feature collision, and cannot achieve high-resolution (512×512) pixel segmentation</strong>.
+            </p>
+            <p>
+              To solve this, our project evolved into <strong>FTT v2 (Forensic Transformer v2)</strong> on branch <code>dkb/arch-fix</code>. FTT v2 replaces parallel hand-crafted streams with a unified self-supervised <strong>DINOv3 ViT-S/16 foundation backbone</strong> adapted via <strong>LoRA (Low-Rank Adaptation)</strong>, an explicit <strong>Self-Correlation Copy-Move Branch</strong>, and a multi-scale convolutional <strong>Mask Decoder</strong>:
+            </p>
+
+            <div class="arch-evolution-comparison">
+              <div class="evolution-column legacy">
+                <h4><span>✕</span> Legacy Three-Stream Concept (Phase 1)</h4>
+                <ul>
+                  <li>Three raw separate streams (Spatial, FFT, SRM Noise)</li>
+                  <li>Cross-attention fusion before standard ViT encoder</li>
+                  <li>Image-level binary and type classification only</li>
+                  <li>No high-resolution (512×512) pixel localization decoder</li>
+                  <li>Optimization conflicts between divergent raw streams</li>
+                  <li>High GPU memory consumption & training instability</li>
+                </ul>
+              </div>
+
+              <div class="evolution-column updated">
+                <h4><span>✓</span> Updated FTT v2 Architecture (Current Production)</h4>
+                <ul>
+                  <li><strong>DINOv3 ViT-S/16 Backbone</strong> with PEFT LoRA (=64$)</li>
+                  <li><strong>Layer 4 Self-Correlation Branch:</strong> Chebyshev-masked (Chebyshev distance d > 1) patch affinity matrix for copy-move cloning</li>
+                  <li><strong>Convolutional Mask Decoder:</strong> Conv3×3 + GroupNorm + Bilinear 16× upsampling -> 512×512 pixel mask</li>
+                  <li><strong>Hierarchical Multi-Task Heads:</strong> Binary DetectionHead + Multi-label TypeHead</li>
+                  <li><strong>Boundary-Aware Edge Loss:</strong> Morphological dilation/erosion contour supervision</li>
+                  <li>100% Passing Unit Test Suite & zero-leakage hash split verification</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step-by-Step Architecture Pipeline -->
+          <div class="arch-flow-diagram">
+            <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.5rem;">FTT v2 End-to-End Pipeline Walkthrough</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              The framework processes an input image through 5 tightly integrated stages to generate pixel masks, image detection, and multi-label type probabilities:
+            </p>
+
+            <div class="flow-step-row">
+              <div class="flow-step-tag">Stage 1 • Input</div>
+              <div class="flow-step-content">
+                <h4>Standardized Image Normalization (B, 3, 512, 512)</h4>
+                <p>Input images are resized to 512×512 resolution using Lanczos/Bilinear interpolation and normalized using ImageNet channel statistics. Rigorous training augmentations apply JPEG recompression (QF 50-95), Gaussian blur, noise, and scaling.</p>
+              </div>
+            </div>
+
+            <div class="flow-step-row">
+              <div class="flow-step-tag">Stage 2 • Backbone</div>
+              <div class="flow-step-content">
+                <h4>DINOv3 ViT-S/16 Backbone + LoRA Adaptation</h4>
+                <p>Self-supervised Vision Transformer foundation model (patch size 16×16, embedding dimension 384, depth 12). Base weights remain frozen while trainable <strong>LoRA adapters (=64, lpha=128$)</strong> inject adaptation directly into Query, Key, and Value self-attention projections.</p>
+              </div>
+            </div>
+
+            <div class="flow-step-row">
+              <div class="flow-step-tag">Stage 3 • Correlation</div>
+              <div class="flow-step-content">
+                <h4>Self-Correlation Copy-Move Branch (Layer 4 Tap)</h4>
+                <p>Intermediate Layer 4 hidden states tap into an explicit patch correlation module. Computes normalized cosine affinity across all 32 × 32 spatial patches. Applies <strong>Chebyshev distance masking</strong> to suppress trivial diagonal self-matches (Chebyshev distance <= 1), followed by mutual match normalization and top-8 descriptor extraction -> <code>cm_feat (B, 32, 32, 32)</code>.</p>
+              </div>
+            </div>
+
+            <div class="flow-step-row">
+              <div class="flow-step-tag">Stage 4 • Decoder</div>
+              <div class="flow-step-content">
+                <h4>Multi-Scale Convolutional Mask Decoder (512 × 512)</h4>
+                <p>Concatenates Layer 12 hidden states with copy-move correlation features: <code>[F_last, cm_feat]</code> (384 + 32 = 416 channels). Passes through Conv3×3 + GroupNorm (8 groups) + ReLU, followed by 16× Bilinear upsampling to generate pristine <code>mask_logits (B, 1, 512, 512)</code>.</p>
+              </div>
+            </div>
+
+            <div class="flow-step-row">
+              <div class="flow-step-tag">Stage 5 • Heads & Loss</div>
+              <div class="flow-step-content">
+                <h4>Hierarchical Task Heads & Boundary-Aware Edge Loss</h4>
+                <p><strong>Detection Head:</strong> 2-layer MLP pooling CLS token, mean patch tokens, and detached mask/correlation statistics -> <code>det_logit (B,)</code>. <strong>Type Head:</strong> Multi-label MLP classifying <code>copy_move</code>, <code>splicing</code>, <code>inpainting</code> -> <code>type_logits (B, 3)</code>. Supervised via <code>FTTv2Loss</code>: L_seg + 15.0 × L_edge + L_det + L_type.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Team Details -->
+        <section class="doc-section" id="doc-team">
+          <div class="doc-section-header">
+            <h2>4. Team Details & Academic Information</h2>
+            <span class="doc-section-badge">Academic Credits</span>
+          </div>
+
+          <div class="team-grid">
+            <!-- Student 1 -->
+            <div class="team-card">
+              <div class="team-avatar">DK</div>
+              <div class="team-name">Dheeraj KB</div>
+              <div class="team-reg">CB.SC.U4CSE23510</div>
+              <p class="team-role">Model Architecture, DINOv3 Backbone Integration, FTT v2 Module Design, and Metric Benchmark Suite.</p>
+            </div>
+
+            <!-- Student 2 -->
+            <div class="team-card">
+              <div class="team-avatar">NG</div>
+              <div class="team-name">Nehan GRM</div>
+              <div class="team-reg">CB.SC.U4CSE23660</div>
+              <p class="team-role">Interactive Cyber-Forensics Web Application (ForgeSight), Data Pipeline Optimization, AMP, and Cloud Hosting Architecture.</p>
+            </div>
+
+            <!-- Student 3 -->
+            <div class="team-card">
+              <div class="team-avatar">HV</div>
+              <div class="team-name">Harish Veylan P</div>
+              <div class="team-reg">CB.SC.U4CSE23722</div>
+              <p class="team-role">Dataset Manifest Builders (CASIA, Columbia, COVERAGE, Defacto), Perceptual Hash Leakage Testing, and Loss Functions.</p>
+            </div>
+
+            <!-- Student 4 -->
+            <div class="team-card">
+              <div class="team-avatar">BA</div>
+              <div class="team-name">Balaji AR</div>
+              <div class="team-reg">CB.SC.U4CSE23759</div>
+              <p class="team-role">Kaggle GPU Training Orchestration, Progressive Pilot Ablation Experiments, and Multi-Task Hyperparameter Tuning.</p>
+            </div>
+
+            <!-- Guide Box -->
+            <div class="guide-box">
+              <div class="guide-avatar">🎓</div>
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); font-weight: 700;">Project Guide & Supervisor</span>
+                <h3 style="font-size: 1.35rem; color: #ffffff; margin: 0.2rem 0;">Ms. Sruthi CJ</h3>
+                <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.35rem;">Assistant Professor, Department of Computer Science & Engineering</p>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">School of Computing, Amrita Vishwa Vidyapeetham, Coimbatore, Tamil Nadu, India</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Project Progress -->
+        <section class="doc-section" id="doc-progress">
+          <div class="doc-section-header">
+            <h2>5. Project Progress & Implementation Milestones</h2>
+            <span class="doc-section-badge">Phase Audits</span>
+          </div>
+
+          <div class="timeline-track">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 0 — Repository Audit & Setup</span> <span class="timeline-date">Oct 2026</span></h4>
+              <p>Conducted full system audit of dependencies (Python 3.11+, PyTorch 2.6+, Transformers, PEFT, OpenCV). Documented legacy model limitations and created a deterministic CPU dummy transformer harness (<code>backbone.name: dummy</code>) ensuring tests run offline without Hugging Face API keys.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 1 — Model Skeleton & Architecture Validation</span> <span class="timeline-date">Oct 2026</span></h4>
+              <p>Implemented <code>ForensicModel</code> nn.Module, PEFT LoRA attention injection, convolutional MaskDecoder, DetectionHead, TypeHead, and Chebyshev-masked Copy-Move branch. Passed Gate 1 unit test suite with <strong>100% pass rate</strong> (45 passed, 0 failed).</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 2 — Data Pipeline & Zero-Leakage Splitting</span> <span class="timeline-date">Oct 2026</span></h4>
+              <p>Standardized manifest schema (<code>src/ftt_v2/data/manifest.py</code>). Implemented source-disjoint train/val splitting with perceptual hash (pHash) clustering to guarantee zero train/val overlap. Built manifest generation tools for CASIA v2.0, Columbia, COVERAGE, and Defacto.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 3 — Multi-Task Losses & Overfit Gate Verification</span> <span class="timeline-date">Oct 2026</span></h4>
+              <p>Engineered <code>FTTv2Loss</code> combining segmentation BCE, morphological boundary edge loss, image detection BCE, and type cross-entropy. Executed 32-sample synthetic overfit gate test: achieved <strong>>80% loss reduction</strong> and <strong>Pixel F1 > 0.80</strong> on forged samples.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 4 — Progressive Pilot Ablation Experiments</span> <span class="timeline-date">Oct 2026</span></h4>
+              <p>Configured progressive ablation benchmarks: <strong>Stage A</strong> (Decoder-only baseline), <strong>Stage B</strong> (LoRA r=64 + Decoder), <strong>Stage C</strong> (Multi-task LoRA + Detection + Type + Decoder), and <strong>Stage D</strong> (Full model with Copy-Move correlation branch).</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 5 — Full Production Training & Kaggle Benchmarking</span> <span class="timeline-date">Oct - Nov 2026</span></h4>
+              <p>Ported training pipeline to Kaggle GPU accelerators with Mixed Precision (AMP), gradient accumulation, and cosine learning rate scheduling with warmup. Monitored pixel IoU, boundary F1, and multi-label mAP.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4><span>Phase 6 — Cyber-Forensics Interactive Web UI & Deployment</span> <span class="timeline-date">Nov 2026</span></h4>
+              <p>Constructed the <strong>ForgeSight (TriForVit-UI)</strong> cyber-forensic portal featuring an interactive curtain split-wipe viewer, bounding box overlay, pre-computed benchmark dataset, and hybrid support for cloud static hosting and local live Python MPS/GPU acceleration.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Technical Specifications -->
+        <section class="doc-section" id="doc-specs">
+          <div class="doc-section-header">
+            <h2>6. Technical Documentation & Codebase Specifications</h2>
+            <span class="doc-section-badge">Engineering Docs</span>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.75rem;">Model Output Tensor Specification</h3>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+                <thead>
+                  <tr style="border-bottom: 1px solid var(--border-subtle); color: var(--cyan); font-family: var(--font-mono);">
+                    <th style="padding: 0.75rem;">Output Tensor</th>
+                    <th style="padding: 0.75rem;">Tensor Shape</th>
+                    <th style="padding: 0.75rem;">Data Type</th>
+                    <th style="padding: 0.75rem;">Forensic Description & Role</th>
+                  </tr>
+                </thead>
+                <tbody style="color: var(--text-secondary);">
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #f8fafc;">mask_logits</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #38bdf8;">(B, 1, 512, 512)</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono);">float32</td>
+                    <td style="padding: 0.75rem;">High-resolution pixel-level logit segmentation locating tampered boundaries.</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #f8fafc;">det_logit</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #38bdf8;">(B,)</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono);">float32</td>
+                    <td style="padding: 0.75rem;">Image-level binary classification logit (Authentic: 0 vs. Forged: 1).</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #f8fafc;">type_logits</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #38bdf8;">(B, 3)</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono);">float32</td>
+                    <td style="padding: 0.75rem;">Multi-label classification logits: <code>[copy_move, splicing, inpainting]</code>.</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #f8fafc;">cm_map_logits</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono); color: #38bdf8;">(B, 1, 32, 32)</td>
+                    <td style="padding: 0.75rem; font-family: var(--font-mono);">float32</td>
+                    <td style="padding: 0.75rem;">Chebyshev distance-masked patch mutual affinity matrix from Layer 4.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: GitHub Repositories -->
+        <section class="doc-section" id="doc-repos">
+          <div class="doc-section-header">
+            <h2>7. GitHub Repositories & Resources</h2>
+            <span class="doc-section-badge">Open Research</span>
+          </div>
+
+          <div class="repo-grid">
+            <!-- Main Repo -->
+            <div class="repo-card">
+              <div>
+                <span class="repo-badge">Main Research Repository</span>
+                <h3>Robust Patch-Based Hierarchical Framework (TriForViT)</h3>
+                <p>Contains the core PyTorch FTT v2 architecture package (<code>src/ftt_v2/</code>), DINOv3 backbone loader, LoRA injection, Copy-Move correlation branch, multi-task losses, training scripts, test suites, and pilot ablation configurations.</p>
+              </div>
+              <div>
+                <div style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--cyan); margin-bottom: 0.85rem;">Branch: dkb/arch-fix</div>
+                <a href="https://github.com/arnchlmcodes/Robust-Patch-Based-Hierarchical-Framework-for-Image-Forgery-Detection-and-Classification" target="_blank" rel="noopener noreferrer" class="repo-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View Main Research Repo ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- UI Repo -->
+            <div class="repo-card">
+              <div>
+                <span class="repo-badge">Web Application Repository</span>
+                <h3>TriForVit-UI (ForgeSight Production Frontend)</h3>
+                <p>Dedicated repository hosting the cyber-forensic web user interface, pre-computed benchmark inferences, interactive split wipe slider, and automated continuous deployment workflows for Vercel and Render.</p>
+              </div>
+              <div>
+                <div style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--emerald); margin-bottom: 0.85rem;">Branch: main (Auto-Deploy Enabled)</div>
+                <a href="https://github.com/NEHANGRM/TriForVit-UI" target="_blank" rel="noopener noreferrer" class="repo-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View UI GitHub Repo ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: Demonstration Walkthrough -->
+        <section class="doc-section" id="doc-demo">
+          <div class="doc-section-header">
+            <h2>8. Demonstration & Video Walkthrough</h2>
+            <span class="doc-section-badge">Interactive Showcase</span>
+          </div>
+
+          <div class="demo-showcase-box">
+            <div class="video-frame-container">
+              <button type="button" class="video-play-btn" id="btn-play-walkthrough" title="Play Walkthrough Video">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </button>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-bottom: 0.35rem;">ForgeSight FTT v2 System Walkthrough</div>
+              <p style="font-size: 0.84rem; color: var(--text-secondary); max-width: 400px;">
+                Live walkthrough demonstrating sample testing, curtain wipe split inspection, bounding box extraction, and report export.
+              </p>
+            </div>
+
+            <div>
+              <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.75rem;">Walkthrough Video Guide</h3>
+              <ul class="demo-timestamps">
+                <li><span class="ts-tag">00:00</span> <span>Architecture Overview & Model Loading</span></li>
+                <li><span class="ts-tag">01:15</span> <span>Beach Sailboat Copy-Move Cloned Detection</span></li>
+                <li><span class="ts-tag">02:40</span> <span>Mountain Splicing Boundary Frequency Mismatch</span></li>
+                <li><span class="ts-tag">03:50</span> <span>Curtain Split Wipe & Heatmap Opacity Blending</span></li>
+                <li><span class="ts-tag">04:30</span> <span>Stage 1 & Stage 2 Probability Telemetry</span></li>
+                <li><span class="ts-tag">05:15</span> <span>Exporting Diagnostic JSON & Executive Summary</span></li>
+              </ul>
+              
+              <div style="margin-top: 1.5rem;">
+                <button type="button" class="btn-primary" id="btn-launch-demo-lab" style="width: 100%; justify-content: center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                  Launch Interactive Forensic Lab ⚡
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div><!-- end #view-docs -->
+
 
   </div>
 

@@ -851,6 +851,112 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  // --------------------------------------------------------------------------
+  // Main View Switcher & Documentation Portal Navigation
+  // --------------------------------------------------------------------------
+  const tabLab = document.getElementById('tab-lab');
+  const tabDocs = document.getElementById('tab-docs');
+  const viewLab = document.getElementById('view-lab');
+  const viewDocs = document.getElementById('view-docs');
+  const btnGotoDocs = document.getElementById('btn-goto-docs');
+  const btnLaunchDemoLab = document.getElementById('btn-launch-demo-lab');
+  const btnPlayWalkthrough = document.getElementById('btn-play-walkthrough');
+  const subnavLinks = document.querySelectorAll('.docs-subnav-link');
+
+  function switchView(target) {
+    if (target === 'docs') {
+      if (tabLab) tabLab.classList.remove('active');
+      if (tabDocs) tabDocs.classList.add('active');
+      if (viewLab) viewLab.classList.remove('active');
+      if (viewDocs) viewDocs.classList.add('active');
+      window.history.replaceState(null, '', '#docs');
+    } else {
+      if (tabDocs) tabDocs.classList.remove('active');
+      if (tabLab) tabLab.classList.add('active');
+      if (viewDocs) viewDocs.classList.remove('active');
+      if (viewLab) viewLab.classList.add('active');
+      window.history.replaceState(null, '', '#lab');
+    }
+  }
+
+  if (tabLab) {
+    tabLab.addEventListener('click', () => {
+      switchView('lab');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  if (tabDocs) {
+    tabDocs.addEventListener('click', () => {
+      switchView('docs');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  if (btnGotoDocs) {
+    btnGotoDocs.addEventListener('click', () => {
+      switchView('docs');
+      const targetSec = document.getElementById('doc-methodology');
+      if (targetSec) {
+        setTimeout(() => targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    });
+  }
+
+  if (btnLaunchDemoLab) {
+    btnLaunchDemoLab.addEventListener('click', () => {
+      switchView('lab');
+      const samplesSec = document.getElementById('samples-section');
+      if (samplesSec) {
+        setTimeout(() => samplesSec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    });
+  }
+
+  if (btnPlayWalkthrough) {
+    btnPlayWalkthrough.addEventListener('click', () => {
+      showToast('Interactive Demonstration Tour: Click any sample to run live FTT v2 inference!');
+      switchView('lab');
+    });
+  }
+
+  // Subnav smooth scroll & active pill
+  subnavLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const sec = document.querySelector(href);
+        if (sec) {
+          e.preventDefault();
+          subnavLinks.forEach((l) => l.classList.remove('active'));
+          link.classList.add('active');
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.history.replaceState(null, '', href);
+        }
+      }
+    });
+  });
+
+  // Handle URL hash on initial load
+  function checkUrlHash() {
+    const hash = window.location.hash;
+    if (hash && (hash.startsWith('#doc') || hash === '#docs')) {
+      switchView('docs');
+      if (hash.startsWith('#doc-')) {
+        const target = document.querySelector(hash);
+        if (target) {
+          setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+        }
+      }
+    } else {
+      switchView('lab');
+    }
+  }
+
+  window.addEventListener('hashchange', checkUrlHash);
+  checkUrlHash();
+
   // Initialize
   initBackendConnection().then(() => {
     loadSamples();
